@@ -490,7 +490,7 @@ class: compact tight
 
 <div class="definition">
 
-**Masking diffusion**: The forward process replaces each token independently by `[MASK]` according to the **probability**:
+**Masking diffusion**: The forward process replaces each token independently by **[MASK]** according to the **probability**:
 $$
 q(x_t^i \mid x_0^i) \;=\; \alpha_t\,\mathbb{1}[x_t^i = x_0^i] \;+\; (1-\alpha_t)\,\mathbb{1}[x_t^i = \texttt{[MASK]}].
 $$
@@ -500,7 +500,7 @@ Reverse process iteratively unmasks the sentence
 
 <div class="note">
 
-**Not smooth.** Unlike continuous flow smooth ODE trajectories, the state is **piecewise constant**. Each token holds its value until it jumps to `[MASK]`, driven by a jump rate rather than a velocity field
+**Not smooth.** Unlike continuous flow smooth ODE trajectories, the state is **piecewise constant**. Each token holds its value until it jumps to **[MASK]**, driven by a jump rate rather than a velocity field
 
 </div>
 
@@ -521,13 +521,13 @@ A joint model over a continuous modality (images or 3D coords) and a discrete on
 
 - **No unified sampler** Continuous and Discrete need different types of samplers
 
-- **No gradual reveal** Tokens flip from `[MASK]` to a real value in one shot
+- **No gradual reveal** Tokens flip from **[MASK]** to a real value in one shot
 
 <div class="example">
 
 Generate a photo of an animal (continuous pixels) jointly with its caption (discrete tokens, masked)
 
-At $t = 0.3$ the caption is fully `[MASK]` and the half-formed image is drifting toward *some* cat-like features. When `dog` unmasks at $t = 0.5$, the image has to *self-correct*. With a continuous text embedding, a noisy "dog-ish" signal would have been present from the start, and early pixel choices could already be steered towards an image of a dog
+At $t = 0.3$ the caption is fully **[MASK]** and the half-formed image is drifting toward *some* cat-like features. When *dog* unmasks at $t = 0.5$, the image has to *self-correct*. With a continuous text embedding, a noisy "dog-ish" signal would have been present from the start, and early pixel choices could already be steered towards an image of a dog
 </div>
 
 ---
